@@ -14,12 +14,6 @@ logging.basicConfig(
     format=GREEN + '%(levelname)s: %(message)s' + RESET
 )
 
-story="""Elia era una ragazza semplice, figlia di contadini, che amava raccontare storie agli animali del bosco.
-       Quando una siccità colpì il villaggio, si disse che la Fonte Magica nel cuore della foresta si era spenta. Nessuno osava cercarla, ma Elia partì con una lanterna e la sua voce.
-       Nel silenzio del bosco, seguì un cervo dorato fino alla sorgente. L’acqua era ferma. Elia raccontò una storia di speranza, proprio come faceva sotto il salice.
-       La Fonte si risvegliò. Tornò la pioggia. Nessuno seppe davvero cosa accadde, ma da quel giorno, al villaggio si ascoltavano le storie di Elia con occhi nuovi."""
-
-
 def do_phase_1(story:str):
 
     logging.info("Inizio phase 1")

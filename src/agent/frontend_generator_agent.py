@@ -1,5 +1,5 @@
 import logging
-from src.utils.utils import api_generate_GEMINI, extract_html_title_and_story
+from src.utils.utils import call_API_LLM, extract_html_title_and_story
 
 
 def generate_story_and_title_prompt(previous_actions, last_action, n_words):
@@ -15,8 +15,8 @@ def generate_story_and_title_prompt(previous_actions, last_action, n_words):
 
 def generate_and_extract_story(previous_actions, last_action, n_words=100):
     prompt = generate_story_and_title_prompt(previous_actions, last_action, n_words)
-    response = api_generate_GEMINI(prompt)
+    response = call_API_LLM(prompt)
     title, story = extract_html_title_and_story(response)
-    #logging.info(title)
-    #logging.info(story)
+    logging.info(title)
+    logging.info(story)
     return title, story

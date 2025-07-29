@@ -2,7 +2,7 @@ import json
 import logging
 from src.utils.constant import get_lore, get_problem_valid_example, get_domain_valid_example, get_lore_example, \
     get_domain, get_problem
-from src.utils.utils import api_generate_GEMINI, extract_and_save_pddl, extract_and_save_lore
+from src.utils.utils import call_API_LLM, extract_and_save_pddl, extract_and_save_lore
 
 # Codice ANSI per il verde
 GREEN = "\033[92m"
@@ -29,7 +29,7 @@ def generate_lore(story_prompt: str):
 
     prompt=generate_lore_prompt(story_prompt)
     logging.info(f"Generazione lore")
-    response=api_generate_GEMINI(prompt)
+    response=call_API_LLM(prompt)
     logging.info(response)
     return response
 
@@ -100,7 +100,7 @@ def generate_pddl(error=False, error_str=""):
     else:
         prompt=generate_prompt_with_error(lore,error_str)
 
-    response=api_generate_GEMINI(prompt)
+    response=call_API_LLM(prompt)
 
     logging.info("Generazione PDDL completata.")
 
