@@ -1,0 +1,15 @@
+{
+    "quest_description": "",
+    "initial_state": "",
+    "goal": "",
+    "obstacles": [],
+    "branching_factor": {
+        "min": 2,
+        "max": 3
+    },
+    "depth_constraints": {
+        "min": 2,
+        "max": 3
+    },
+    "context": ""
+}

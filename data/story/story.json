@@ -1,0 +1,86 @@
+{
+  "start": {
+    "text": "Nel profondo del tuo nobile regno, la richiesta d'aiuto per la principessa, imprigionata in un lontano castello, giunge alle tue orecchie. Sei pronto a partire, ma come ti prepari per l'impresa?",
+    "actions": {
+      "Prendi la tua fidata spada, pronta per la battaglia": "get_sword_kingdom",
+      "Ascolta le voci sulla mistica Antica Reliquia, un'alternativa al confronto diretto": "explore_relic_rumors"
+    }
+  },
+  "get_sword_kingdom": {
+    "text": "Impugni la tua spada, sentendo il suo peso familiare e il potenziale che promette. Ogni nemico che oser� sbarrarti il passo dovr� affrontare la tua lama. La strada per la Foresta Incantata � il tuo primo ostacolo.",
+    "actions": {
+      "Affronta i pericoli della Foresta Incantata": "forest_peril"
+    }
+  },
+  "explore_relic_rumors": {
+    "text": "Le leggende narrano di un'Antica Reliquia, capace di disperdere le magie pi� oscure, nascosta nelle Rovine Dimenticate. Trovarla potrebbe darti un vantaggio cruciale.",
+    "actions": {
+      "Viaggia verso le Rovine Dimenticate": "ancient_ruins"
+    }
+  },
+  "ancient_ruins": {
+    "text": "Le Rovine Dimenticate sono un labirinto di pietre crollate e antiche energie. Dopo una lunga ricerca, tra i detriti di un tempio dimenticato, brilla l'Antica Reliquia.",
+    "actions": {
+      "Acquisisci l'Antica Reliquia": "has_relic_ready"
+    }
+  },
+  "has_relic_ready": {
+    "text": "La Reliquia � tua. La sua aura ti infonde una strana sicurezza. Ora, devi tornare al regno per la tua spada, essenziale per gli scontri fisici che ti aspettano.",
+    "actions": {
+      "Torna al regno e prendi la tua spada": "get_sword_from_ruins"
+    }
+  },
+  "get_sword_from_ruins": {
+    "text": "Finalmente, equipaggiato sia con la lama che con la mistica Reliquia, sei pronto per la vera avventura. Il sentiero per la Foresta Incantata ti aspetta, irto di pericoli.",
+    "actions": {
+      "Affronta i pericoli della Foresta Incantata": "forest_peril"
+    }
+  },
+  "forest_peril": {
+    "text": "Il sentiero per la Foresta Incantata � avvolto in un'oscurit� minacciosa, abitata da creature e trappole. Solo con la tua lama puoi aprirti un varco attraverso l'ignoto.",
+    "actions": {
+      "Sconfiggi le creature oscure e libera il passaggio": "cleared_forest"
+    }
+  },
+  "cleared_forest": {
+    "text": "Dopo un'ardua battaglia, il sentiero � sgombro. Attraversi la foresta con passo deciso, e presto le imponenti mura del Castello del Drago si ergono all'orizzonte, minacciose e maestose.",
+    "actions": {
+      "Prosegui verso il Cancello del Castello": "castle_gate_dragon"
+    }
+  },
+  "castle_gate_dragon": {
+    "text": "Al cancello del castello, un'ombra colossale si proietta su di te: il Drago, guardiano feroce con occhi di fuoco e scaglie dure come l'acciaio. La principessa � vicina, ma questo mostro va affrontato!",
+    "actions": {
+      "Impegnati in battaglia con il Drago": "defeated_dragon"
+    }
+  },
+  "defeated_dragon": {
+    "text": "Con un ruggito finale che scuote le fondamenta del castello, il drago crolla, sconfitto. Il cancello si spalanca, invitandoti a entrare. All'interno, un'aura di magia antica ti avvolge, presagio di un nuovo ostacolo.",
+    "actions": {
+      "Addentrati nel cuore del castello": "castle_interior_magic"
+    }
+  },
+  "castle_interior_magic": {
+    "text": "Nelle profondit� del castello, una potente barriera magica sigilla la strada per la principessa. Un sinistro Stregone, il custode di questa magia, ti attende con un sorriso malvagio.",
+    "actions": {
+      "Sfidalo in un duello mortale con la tua spada": "sorcerer_defeated",
+      "Utilizza l'Antica Reliquia per disperdere la magia": "magic_dispelled_relic"
+    }
+  },
+  "sorcerer_defeated": {
+    "text": "Con un ultimo, disperato gesto, lo Stregone cade, e la barriera magica si dissolve in fumo. La strada per la principessa � finalmente libera, senza ostacoli magici a fermarti.",
+    "actions": {
+      "Raggiungi e salva la Principessa!": "victory_princess"
+    }
+  },
+  "magic_dispelled_relic": {
+    "text": "L'antica Reliquia si illumina con un bagliore accecante, rompendo l'incantesimo. La barriera svanisce, e lo Stregone, privo del suo potere, si ritira nell'ombra, lasciandoti il passaggio libero. La principessa � a portata di mano!",
+    "actions": {
+      "Raggiungi e salva la Principessa!": "victory_princess"
+    }
+  },
+  "victory_princess": {
+    "text": "Hai raggiunto la principessa! Con il drago sconfitto e l'antica magia spezzata, la liberi dalle sue catene. La tua missione � compiuta, il regno festeggia il suo eroe! Hai salvato la principessa!",
+    "actions": {}
+  }
+}
