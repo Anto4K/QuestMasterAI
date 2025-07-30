@@ -1,45 +1,42 @@
-(define (problem aldrics-quest-for-light)
-    (:domain valdoria-quest)
+(define (problem elia-quest-for-rain)
+    (:domain elia-quest)
     (:objects
-        aldric - prince
-        king-father - king
-        valdorian-council - council-member
-        shadow-legion-guards - shadow-creature
-        crystal-of-eternal-light - crystal
-        royal-castle - castle
-        forbidden-mountains - forbidden-mountains
-        treacherous-path - treacherous-path
+        elia - protagonist
+        village - location
+        forest - location
+        magic-spring - magical-source
     )
 
     (:init
-        ;; Initial state: Prince Aldric is in the royal castle of Valdoria.
-        (at aldric royal-castle)
+        ;; Initial state as per quest description:
+        ;; "Elia si trova nel suo villaggio, afflitto da una grave siccit√ .
+        ;; La comunit√  √® senza speranza e crede che la Fonte Magica sia irrimediabilmente spenta."
+        (at elia village)
+        (has-drought village)
+        (spring-dormant magic-spring)
 
-        ;; Prince Aldric has just discovered a prophecy about the Crystal.
-        (knows-prophecy aldric)
+        ;; Obstacles / Conditions:
+        ;; "La siccit√  che affligge il villaggio e mina la speranza." - Covered by (has-drought village).
+        ;; "La paura degli abitanti del villaggio che impedisce a chiunque altro di agire." - Implies Elia acts alone.
+        ;; "Il silenzio e l'ignoto del bosco, che Elia deve attraversare da sola." - Paths defined, Elia is the only actor.
+        (elias-courageous elia) ; Elia possesses the courage to face the unknown.
 
-        ;; The kingdom is currently afflicted by the ancient curse.
-        (curse-active)
+        ;; "L'acqua della Fonte Magica √® ferma e inerte, priva di vita." - Covered by (spring-dormant magic-spring).
 
-        ;; Obstacle 1: His overprotective father, who forbids him from leaving the castle.
-        (at king-father royal-castle)
-        (king-forbids-departure)
-
-        ;; Obstacle 2: A treacherous council plotting to usurp the throne in his absence.
-        (at valdorian-council royal-castle) ; Assuming the council is also physically present in the castle
-        (council-plotting)
-
-        ;; Obstacle 3: The Shadow Legion, dark creatures that guard the Crystal of Eternal Light in the Forbidden Mountains.
-        (at shadow-legion-guards forbidden-mountains)
-        (legion-guards forbidden-mountains)
-
-        ;; The Crystal of Eternal Light is in the Forbidden Mountains, but not yet located or acquired by Aldric.
-        ;; (The 'at crystal-of-eternal-light forbidden-mountains' is implied by the quest and the find-crystal-of-light action's effects,
-        ;; as items without an 'at' predicate for all objects are generally considered to be at their fixed location or acquired.)
+        ;; Define paths between locations:
+        (path-exists village forest)
+        (path-exists forest magic-spring)
+        ;; Optional: Allow return paths for more flexibility, though not strictly needed for the stated goal.
+        (path-exists forest village)
+        (path-exists magic-spring forest)
     )
 
+    ;; Goal consistent with the quest:
+    ;; "Raggiungere la Fonte Magica nel cuore della foresta, risvegliarla con il potere delle sue storie,
+    ;; e far tornare la pioggia al villaggio."
     (:goal (and
-        ;; Goal: Find the Crystal of Eternal Light in the Forbidden Mountains to break the ancient curse on Valdoria and save the kingdom.
-        (kingdom-saved)
+        (at elia magic-spring) ; Elia must reach the Magic Spring.
+        (spring-active magic-spring) ; The Magic Spring must be awakened.
+        (rain-returned village) ; Rain must return to the village.
     ))
 )

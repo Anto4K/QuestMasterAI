@@ -1,7 +1,7 @@
 import json
 import logging
 from src.utils.constant import get_lore, get_domain, get_problem, get_sas_plan, get_story_example
-from src.utils.utils import call_API_LLM, extract_and_save_story
+from src.utils.utils import call_API_LLM
 
 
 def generate_prompt_for_story():

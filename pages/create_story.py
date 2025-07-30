@@ -263,6 +263,9 @@ if warnings:
 
 st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
+if "nwords" not in st.session_state:
+    st.session_state.nwords = 100
+
 # Button to proceed
 col1, col2, col3 = st.columns([1, 2, 1])
 
@@ -274,8 +277,8 @@ with col2:
             st.error("❌ The opening is too short! It must contain at least 50 characters.")
         else:
             with st.spinner("Generating the story..."):
-                # isValid = do_phase_1(user_input)
-                isValid = True
+                isValid = do_phase_1(user_input)
+                #isValid = True
                 if isValid:
                     st.markdown("""
                         <div class="success-message">

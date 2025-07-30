@@ -1,0 +1,4 @@
+(go elia village forest)
+(go elia forest magic-spring)
+(awaken-spring elia magic-spring village)
+; cost = 3 (unit cost)

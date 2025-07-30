@@ -27,7 +27,7 @@ def command_windows(domain_path,downward_path,problem_path):
     result = subprocess.run(
         [
             "wsl",
-            "-d", "Ubuntu",
+            "-d", "Ubuntu-24.04",
             "bash", "-c",
             command
         ],

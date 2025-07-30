@@ -11,9 +11,6 @@ logger = logging.getLogger(__name__)
 
 load_dotenv()
 
-model = os.getenv("OLLAMA_MODEL")
-logging.info(f"model = {model}")
-
 def api_generate_GEMINI(prompt:str):
     genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
     model = genai.GenerativeModel(os.getenv("GOOGLE_MODEL_NAME"))
@@ -21,6 +18,7 @@ def api_generate_GEMINI(prompt:str):
     return response.text
 
 def api_generate_OLLAMA(prompt:str):
+    model = os.getenv("OLLAMA_MODEL")
     return invoke_ollama_llm(prompt, model)
 
 def invoke_ollama_llm(prompt: str,

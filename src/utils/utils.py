@@ -48,8 +48,8 @@ def extract_and_save_story(response: str) -> None:
 
     logging.info("✅ story.json generated.")
 
-def call_API_LLM(prompt:str, isGeminiAPI = True):
-    if isGeminiAPI:
+def call_API_LLM(prompt:str, useGeminiAPI = True):
+    if useGeminiAPI:
         return api_generate_GEMINI(prompt)
     else:
         return api_generate_OLLAMA(prompt)
