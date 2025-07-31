@@ -44,7 +44,7 @@ def do_phase_1(story:str):
         i += 1
 
     #4. GENERAZIONE STORY.JSON
-    if(isValid):
+    if isValid:
         logging.info("Generating story.json...")
         response_story=generate_story()
         extract_and_save_story(response_story)
