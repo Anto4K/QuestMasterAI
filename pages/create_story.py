@@ -276,25 +276,25 @@ with col2:
         elif len(user_input.strip()) < 50:
             st.error("❌ The opening is too short! It must contain at least 50 characters.")
         else:
-            with st.spinner("Generating the story..."):
+            with st.spinner("Generating the story...", show_time=True):
                 isValid = do_phase_1(user_input)
                 #isValid = True
-                if isValid:
-                    st.markdown("""
-                        <div class="success-message">
-                            🎉 Perfect! You can now proceed to play your fantastic story!
-                        </div>
-                    """, unsafe_allow_html=True)
-                    st.session_state.isCustom = True
-                    st.balloons()
+            if isValid:
+                st.markdown("""
+                    <div class="success-message">
+                        🎉 Perfect! You can now proceed to play your fantastic story!
+                    </div>
+                """, unsafe_allow_html=True)
+                st.session_state.isCustom = True
+                st.balloons()
 
-                    st.markdown("<br>", unsafe_allow_html=True)
-                    col_link1, col_link2, col_link3 = st.columns([1, 2, 1])
-                    with col_link2:
-                        st.page_link("pages/play_story.py", label="🎮 PLAY YOUR STORY", icon="🚀")
-                else:
-                    st.error("Error during the validation of your story. Please change your input")
-                    st.rerun()
+                st.markdown("<br>", unsafe_allow_html=True)
+                col_link1, col_link2, col_link3 = st.columns([1, 2, 1])
+                with col_link2:
+                    st.page_link("pages/play_story.py", label="🎮 PLAY YOUR STORY", icon="🚀")
+            else:
+                st.error("Error during the validation of your story. Please change your input")
+                st.rerun()
 
 # Footer
 st.markdown('<hr class="divider">', unsafe_allow_html=True)

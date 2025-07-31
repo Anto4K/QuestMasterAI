@@ -1,30 +1,55 @@
 {
   "start": {
-    "text": "Il villaggio di Elia geme sotto il sole implacabile. La terra è secca, i pozzi vuoti e la speranza svanisce come fumo. Tutti parlano della Fonte Magica, ora solo una leggenda sbiadita, ma nessuno osa cercarla. Elia, con un cuore pieno di coraggio, decide che è lei a dover agire.",
+    "text": "Il lupo Bruno, con un brontolio nello stomaco, vede l'agnello Nino che saltella felice nel Prato Fiorito. E tempo di un inseguimento divertente!",
     "actions": {
-      "Abbandona il villaggio e avventurati nel misterioso bosco": "journey_forest"
+      "Avvicinarsi in punta di zampe, cercando di sorprenderlo": "initiate_stealth_chase",
+      "Lanciare un simpatico 'Bau!' e invitarlo al gioco": "initiate_playful_chase"
     }
   },
-  "journey_forest": {
-    "text": "Con un profondo respiro, Elia si addentra nel fitto bosco. Gli alberi secolari sussurrano segreti antichi, e il silenzio è rotto solo dal fruscio delle foglie sotto i suoi passi. Ogni ombra sembra nascondere una storia, ma anche una sfida.",
+  "initiate_stealth_chase": {
+    "text": "Nino, con l'istinto animale, percepisce Bruno e con un balzo parte verso la Collina Solare. La caccia e ufficialmente un gioco!",
     "actions": {
-      "Prosegui lungo il sentiero meno battuto, più in profondità nel cuore del bosco": "forest_deep"
+      "Continuare l'inseguimento sulla Collina, tra i fiori selvatici": "chase_on_hill_ready",
+      "Cambiare tattica e cercare di tagliare la strada verso il Ruscello": "chase_to_stream_ready"
     }
   },
-  "forest_deep": {
-    "text": "Dopo ore di cammino, il bosco si fa più denso, quasi che la natura stessa volesse custodire il suo tesoro più gelosamente. L'aria diventa più fresca, un sentore di muschio bagnato e magia si diffonde. Si sente l'eco di una leggenda, la Fonte è vicina.",
+  "initiate_playful_chase": {
+    "text": "Nino si volta e, riconoscendo il tono giocoso di Bruno, lo sfida a una corsa fino al Ruscello Scintillante. La partita e aperta!",
     "actions": {
-      "Segui il richiamo della magia e cerca la Fonte nascosta": "at_spring"
+      "Saltare le rocce e rincorrere Nino lungo il Ruscello": "chase_by_stream_ready",
+      "Rimanere nel Prato e sfidarlo a una gara di giravolte": "chase_in_prato_ready"
     }
   },
-  "at_spring": {
-    "text": "Finalmente, Elia giunge a una piccola radura. Al centro, la Fonte Magica riposa in un sonno profondo. L'acqua, di solito cristallina e vibrante, è immobile e opaca, come uno specchio che ha dimenticato di riflettere. È lì, in attesa della sua storia.",
+  "chase_on_hill_ready": {
+    "text": "Sulla Collina, Bruno e Nino si rincorrono tra risate e salti. L'agnello, stanco ma felice, si ferma per un attimo, pronto per il 'prendimi'.",
     "actions": {
-      "Avvicinati alla Fonte e inizia a raccontare la storia più bella che conosci": "spring_awakened"
+      "Bruno lo circonda con un finto morso al collo": "playful_capture_final",
+      "Nino si arrende con un buffo crollo a terra": "playful_capture_final"
     }
   },
-  "spring_awakened": {
-    "text": "Mentre Elia racconta, la sua voce, intrisa di speranza e amore per il suo villaggio, risuona nell'aria. L'acqua della Fonte inizia a fremere, poi a gorgogliare, e infine a zampillare con una luce vibrante. Una dolce pioggia comincia a cadere, prima leggera, poi più intensa, un dono dal cielo che danza sulle foglie e sulla terra assetata. La magia è tornata, e con essa la vita al villaggio.",
+  "chase_to_stream_ready": {
+    "text": "La corsa al Ruscello e stata spassosa, tra schizzi e scivoloni. Nino si affaccia all'acqua, esausto ma sorridente, aspettando l'ultimo atto del gioco.",
+    "actions": {
+      "Bruno lo spinge delicatamente in un mucchio di foglie": "playful_capture_final",
+      "Nino si nasconde dietro un albero e aspetta di essere trovato": "playful_capture_final"
+    }
+  },
+  "chase_by_stream_ready": {
+    "text": "Lungo il Ruscello, la caccia e un balletto acquatico. Nino, bagnato e divertito, si siede su una pietra, pronto a farsi 'catturare'.",
+    "actions": {
+      "Bruno lo avvolge in un abbraccio giocoso": "playful_capture_final",
+      "Nino gli offre la zampa come segno di resa divertita": "playful_capture_final"
+    }
+  },
+  "chase_in_prato_ready": {
+    "text": "Nel Prato Fiorito, le giravolte li hanno resi entrambi un po' storditi. Nino barcolla verso Bruno, pronto per la fine del gioco del 'predatore e preda'.",
+    "actions": {
+      "Bruno lo stuzzica con una leccata giocosa sul naso": "playful_capture_final",
+      "Nino si sdraia sull'erba invitando Bruno a 'vincere'": "playful_capture_final"
+    }
+  },
+  "playful_capture_final": {
+    "text": "Con un ultimo gesto affettuoso e divertito, Bruno 'cattura' l'agnello Nino. La 'caccia' e finita. Nessuno e stato davvero mangiato, solo tanto, tanto divertimento!",
     "actions": {}
   }
 }

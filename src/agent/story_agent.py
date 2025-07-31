@@ -14,6 +14,7 @@ def generate_prompt_for_story():
 
     prompt = f"""You are an interactive storyteller.
         Given these PDDL files and this lore, create a JSON representation of the story as a finite state machine (FSM).
+        The first state must called "start". 
         
         Write json in <JSON> </JSON>
 
@@ -33,7 +34,8 @@ def generate_prompt_for_story():
         Example story:
         {story_example}
         
-        Return yor response like plain text in ASCII character inside 
+        Return yor response like plain text in ASCII character inside. If your response use italian language don't use special characters, such as accent. 
+        The italian response must contain only simple text so with can accept grammatical error
         
         """
     return prompt
@@ -43,5 +45,4 @@ def generate_story():
 
     prompt=generate_prompt_for_story()
     response=call_API_LLM(prompt)
-    logging.info(response)
     return response

@@ -30,7 +30,6 @@ def generate_lore(story_prompt: str):
     prompt=generate_lore_prompt(story_prompt)
     logging.info(f"Generazione lore")
     response=call_API_LLM(prompt)
-    logging.info(response)
     return response
 
 def generate_prompt(lore):

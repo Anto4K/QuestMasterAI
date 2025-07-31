@@ -1,53 +1,72 @@
-(define (domain elia-quest)
+(define (domain playful-hunt)
     (:requirements :strips :typing)
     (:types
-        person
+        animal
+        wolf lamb - animal
         location
-        protagonist - person ; Elia, the main character.
-        magical-source - location ; The Magic Spring, a special location.
     )
 
     (:predicates
-        (at ?p - person ?l - location) ; Indicates where a person is located.
-        (has-drought ?l - location) ; Signifies that a location (e.g., the village) is suffering from drought.
-        (spring-dormant ?s - magical-source) ; The state where the Magic Spring is lifeless and inactive.
-        (spring-active ?s - magical-source) ; The state where the Magic Spring is revived and flowing.
-        (rain-returned ?l - location) ; Indicates that rain has returned to a specific location, resolving the drought.
-        (path-exists ?from ?to - location) ; A general predicate indicating a navigable path between two locations.
-        (elias-courageous ?p - protagonist) ; Elia's inherent courage to undertake the journey alone.
+        (at ?a - animal ?l - location) ; An animal is at a specific location.
+        (hungry ?w - wolf) ; Indicates the wolf is hungry.
+        (sees ?w - wolf ?l - lamb) ; Indicates the wolf sees the lamb.
+        (chasing ?w - wolf ?l - lamb) ; The wolf is actively pursuing the lamb.
+        (ready-to-catch ?w - wolf ?l - lamb) ; This predicate signifies that the obstacles (elusive lamb, playful wolf, game of chase) have been overcome, and the conditions for capture are met.
+        (eaten ?l - lamb) ; The lamb has been "eaten" (final goal, interpreted in a playful context).
     )
 
-    ;; Action: Elia moves from one location to another.
-    ;; This action represents Elia traversing various areas, including the mysterious forest.
-    (:action go
-        :parameters (?p - protagonist ?from ?to - location)
+    ;; Action: The wolf initiates the playful pursuit of the lamb.
+    ;; This action transitions the wolf from being hungry and spotting the lamb to actively chasing it.
+    (:action start-chase
+        :parameters (?w - wolf ?l - lamb ?loc - location)
         :precondition (and
-            (at ?p ?from)
-            (path-exists ?from ?to)
-            (elias-courageous ?p) ; Elia's courage allows her to venture into the unknown.
+            (at ?w ?loc)
+            (at ?l ?loc)
+            (hungry ?w)
+            (sees ?w ?l)
         )
         :effect (and
-            (not (at ?p ?from))
-            (at ?p ?to)
+            (chasing ?w ?l)
+            (not (hungry ?w))
+            (not (sees ?w ?l))
         )
     )
 
-    ;; Action: Elia awakens the Magic Spring with the power of her stories.
-    ;; This is the central magical action that resolves the main quest objective.
-    (:action awaken-spring
-        :parameters (?p - protagonist ?spring - magical-source ?village - location)
+    ;; Action: The wolf and lamb engage in a playful game of chase.
+    ;; This action embodies the "game of chase" obstacle. By its completion, it implicitly resolves the lamb's
+    ;; elusiveness (the lamb becomes sufficiently tired) and the wolf's playful nature (the wolf maintains
+    ;; enough "pretense of threat" or focus during the game). This sets the 'ready-to-catch' condition.
+    (:action engage-in-chase-game
+        :parameters (?w - wolf ?l - lamb ?from ?to - location)
         :precondition (and
-            (at ?p ?spring)
-            (spring-dormant ?spring)
-            (not (spring-active ?spring)) ; Ensure it's not already active.
-            (has-drought ?village) ; The spring must be awakened to end the drought.
-            (elias-courageous ?p) ; Elia's courage is needed for this significant act.
+            (at ?w ?from)
+            (at ?l ?from)
+            (chasing ?w ?l)
+            (not (ready-to-catch ?w ?l)) ; They are not yet ready for capture.
         )
         :effect (and
-            (not (spring-dormant ?spring))
-            (spring-active ?spring)
-            (not (has-drought ?village)) ; The drought at the village ends.
-            (rain-returned ?village) ; Rain returns to the village as a result.
+            (not (at ?w ?from))
+            (not (at ?l ?from))
+            (at ?w ?to)
+            (at ?l ?to)
+            (ready-to-catch ?w ?l) ; After this playful interaction, the conditions for capture are met.
+        )
+    )
+
+    ;; Action: The wolf performs the playful capture and "eating" of the lamb.
+    ;; This action achieves the quest's final goal once the conditions for capture are set by the chase game.
+    (:action perform-playful-capture
+        :parameters (?w - wolf ?l - lamb ?loc - location)
+        :precondition (and
+            (at ?w ?loc)
+            (at ?l ?loc)
+            (ready-to-catch ?w ?l) ; Wolf and lamb are in the state where capture is possible.
+            (chasing ?w ?l) ; The playful chase is still ongoing up to the point of capture.
+        )
+        :effect (and
+            (eaten ?l) ; The lamb is "eaten" playfully, achieving the goal.
+            (not (chasing ?w ?l)) ; The chase ends with the capture.
+            (not (ready-to-catch ?w ?l)) ; The conditions for capture are no longer relevant as it's completed.
         )
     )
 )

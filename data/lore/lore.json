@@ -1,20 +1,19 @@
 {
-    "quest_description": "Una siccit\u00c3\u00a0 colp\u00c3\u00ac il villaggio di Elia, e si dice che la Fonte Magica nel cuore della foresta si sia spenta. Nessuno osa cercarla, ma Elia decide di partire per risvegliarla.",
-    "initial_state": "Elia si trova nel suo villaggio, afflitto da una grave siccit\u00c3\u00a0. La comunit\u00c3\u00a0 \u00c3\u00a8 senza speranza e crede che la Fonte Magica sia irrimediabilmente spenta.",
-    "goal": "Raggiungere la Fonte Magica nel cuore della foresta, risvegliarla con il potere delle sue storie, e far tornare la pioggia al villaggio.",
+    "quest_description": "Un lupo si prefigge di catturare e mangiare un agnello, ma lo fa in un modo insolito e divertente.",
+    "initial_state": "Il lupo ha fame e individua un agnello come sua prossima preda.",
+    "goal": "Il lupo deve catturare e mangiare l'agnello in maniera giocosa.",
     "obstacles": [
-        "La siccit\u00c3\u00a0 che affligge il villaggio e mina la speranza.",
-        "La paura degli abitanti del villaggio che impedisce a chiunque altro di agire.",
-        "Il silenzio e l'ignoto del bosco, che Elia deve attraversare da sola.",
-        "L'acqua della Fonte Magica \u00c3\u00a8 ferma e inerte, priva di vita."
+        "L'agnello \u00e8 particolarmente vivace e sfuggente.",
+        "Il lupo, data la sua natura giocherellona, fatica a rimanere serio e concentrato sulla caccia.",
+        "La caccia si trasforma in un gioco a rincorrersi, con il lupo che deve mantenere la sua pretesa di minaccia."
     ],
     "branching_factor": {
-        "min": 1,
+        "min": 2,
         "max": 2
     },
     "depth_constraints": {
-        "min": 3,
-        "max": 4
+        "min": 2,
+        "max": 3
     },
-    "context": "Una storia di fantasia pastorale e magica, ambientata in un piccolo villaggio rurale e un bosco incantato. Si concentra sul coraggio, il potere del racconto e la speranza, con un tono leggero e ispiratore, simile a una favola."
+    "context": "Una breve favola con un tono umoristico e leggero, ambientata in un contesto naturale dove gli animali agiscono in modo inaspettato e divertente. Adatto a un pubblico giovane."
 }

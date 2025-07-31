@@ -1,4 +1,4 @@
-(go elia village forest)
-(go elia forest magic-spring)
-(awaken-spring elia magic-spring village)
+(start-chase lupo1 agnello1 prato1)
+(engage-in-chase-game lupo1 agnello1 prato1 collina1)
+(perform-playful-capture lupo1 agnello1 collina1)
 ; cost = 3 (unit cost)
